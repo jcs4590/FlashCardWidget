@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B17" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="M4Y-Lb-cyx">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Today View Controller-->
+        <scene sceneID="cwh-vc-ff4">
+            <objects>
+                <viewController id="M4Y-Lb-cyx" customClass="TodayViewController" customModule="FlashWidget" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hDx-Di-c4N"/>
+                        <viewControllerLayoutGuide type="bottom" id="V08-UI-RfS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="33G-yv-kET">
+                                <rect key="frame" x="6" y="8" width="304" height="163"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B4N-WW-MDs">
+                                        <rect key="frame" x="8" y="132" width="294" height="30"/>
+                                        <state key="normal" title="Open App">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="openApp:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="VFb-Wb-ea5"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MZY-Dr-70j">
+                                        <rect key="frame" x="8" y="131" width="295" height="31"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ecx-af-PqD">
+                                                <rect key="frame" x="0.0" y="0.0" width="60" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="Xe9-1v-JkH"/>
+                                                    <constraint firstAttribute="width" constant="60" id="rFJ-Ki-4T0"/>
+                                                </constraints>
+                                                <state key="normal">
+                                                    <attributedString key="attributedTitle">
+                                                        <fragment content="Back">
+                                                            <attributes>
+                                                                <color key="NSColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <font key="NSFont" size="15" name="MarkerFelt-Wide"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                </state>
+                                                <connections>
+                                                    <action selector="buttonPrev:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="Gyx-dr-KWy"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eIw-MK-E0K">
+                                                <rect key="frame" x="121" y="1" width="60" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="SJH-R1-Tgu"/>
+                                                    <constraint firstAttribute="width" constant="60" id="nb6-bX-c22"/>
+                                                </constraints>
+                                                <state key="normal" title="Flip">
+                                                    <attributedString key="attributedTitle">
+                                                        <fragment content="Flip">
+                                                            <attributes>
+                                                                <font key="NSFont" size="15" name="MarkerFelt-Wide"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                </state>
+                                                <connections>
+                                                    <action selector="buttonFlip:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="CLx-rA-5fi"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iDu-ta-hsl">
+                                                <rect key="frame" x="237" y="1" width="60" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="WMh-b8-Wka"/>
+                                                    <constraint firstAttribute="width" constant="60" id="w9g-HF-trA"/>
+                                                </constraints>
+                                                <state key="normal">
+                                                    <attributedString key="attributedTitle">
+                                                        <fragment content="Next">
+                                                            <attributes>
+                                                                <font key="NSFont" size="15" name="MarkerFelt-Wide"/>
+                                                                <font key="NSOriginalFont" size="15" name="TwCenMT-Regular"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                </state>
+                                                <connections>
+                                                    <action selector="buttonNext:" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="96c-dO-lgT"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="eIw-MK-E0K" firstAttribute="top" secondItem="MZY-Dr-70j" secondAttribute="top" constant="1" id="Bt8-rx-OPD"/>
+                                            <constraint firstItem="eIw-MK-E0K" firstAttribute="leading" secondItem="Ecx-af-PqD" secondAttribute="trailing" constant="61" id="Ey6-6x-CYU"/>
+                                            <constraint firstItem="iDu-ta-hsl" firstAttribute="top" secondItem="MZY-Dr-70j" secondAttribute="top" constant="1" id="H0K-U8-ku8"/>
+                                            <constraint firstAttribute="bottom" secondItem="Ecx-af-PqD" secondAttribute="bottom" constant="1" id="IZJ-bF-8f5"/>
+                                            <constraint firstItem="Ecx-af-PqD" firstAttribute="leading" secondItem="MZY-Dr-70j" secondAttribute="leading" id="L7X-BJ-8kg"/>
+                                            <constraint firstAttribute="bottom" secondItem="iDu-ta-hsl" secondAttribute="bottom" id="OhH-6z-PGC"/>
+                                            <constraint firstItem="Ecx-af-PqD" firstAttribute="top" secondItem="MZY-Dr-70j" secondAttribute="top" id="WKE-kH-Sh3"/>
+                                            <constraint firstAttribute="trailing" secondItem="iDu-ta-hsl" secondAttribute="trailing" constant="-2" id="hjs-Fo-63n"/>
+                                            <constraint firstAttribute="width" constant="295" id="i3r-6G-yfw"/>
+                                            <constraint firstAttribute="trailing" secondItem="eIw-MK-E0K" secondAttribute="trailing" constant="114" id="jAj-In-b2Y"/>
+                                            <constraint firstItem="iDu-ta-hsl" firstAttribute="leading" secondItem="eIw-MK-E0K" secondAttribute="trailing" constant="56" id="wtX-uS-Ifv"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" preferredMaxLayoutWidth="315" translatesAutoresizingMaskIntoConstraints="NO" id="D9G-FJ-vJ3">
+                                        <rect key="frame" x="8" y="12" width="295" height="100"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="295" id="OcL-0C-wnz"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="MZY-Dr-70j" secondAttribute="trailing" constant="1" id="3JV-3f-TR7"/>
+                                    <constraint firstAttribute="trailing" secondItem="D9G-FJ-vJ3" secondAttribute="trailing" constant="1" id="9GY-0U-ioT"/>
+                                    <constraint firstItem="D9G-FJ-vJ3" firstAttribute="leading" secondItem="33G-yv-kET" secondAttribute="leading" constant="8" id="G35-1F-aSR"/>
+                                    <constraint firstItem="MZY-Dr-70j" firstAttribute="leading" secondItem="33G-yv-kET" secondAttribute="leading" constant="8" id="JAe-YP-TqC"/>
+                                    <constraint firstItem="B4N-WW-MDs" firstAttribute="top" secondItem="MZY-Dr-70j" secondAttribute="bottom" constant="-30" id="JXS-DT-JJI"/>
+                                    <constraint firstItem="D9G-FJ-vJ3" firstAttribute="top" secondItem="33G-yv-kET" secondAttribute="top" constant="12" id="Mjy-9x-xOe"/>
+                                    <constraint firstAttribute="trailing" secondItem="B4N-WW-MDs" secondAttribute="trailing" constant="2" id="Rk4-3A-3nI"/>
+                                    <constraint firstAttribute="bottom" secondItem="B4N-WW-MDs" secondAttribute="bottom" constant="1" id="bTp-h6-PyH"/>
+                                    <constraint firstAttribute="bottom" secondItem="MZY-Dr-70j" secondAttribute="bottom" constant="1" id="qG4-ts-EYu"/>
+                                    <constraint firstItem="MZY-Dr-70j" firstAttribute="top" secondItem="D9G-FJ-vJ3" secondAttribute="bottom" constant="19" id="whP-ah-fsF"/>
+                                    <constraint firstItem="B4N-WW-MDs" firstAttribute="leading" secondItem="33G-yv-kET" secondAttribute="leading" constant="8" id="ypD-1P-R2N"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="V08-UI-RfS" firstAttribute="top" secondItem="33G-yv-kET" secondAttribute="bottom" constant="9" id="0SH-uk-fAX"/>
+                            <constraint firstItem="33G-yv-kET" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leadingMargin" constant="-10" id="BG0-Y5-2uA"/>
+                            <constraint firstAttribute="centerX" secondItem="33G-yv-kET" secondAttribute="centerX" constant="2" id="bhd-AL-kw1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="33G-yv-kET" secondAttribute="trailing" constant="-6" id="eKa-9e-Rce"/>
+                            <constraint firstAttribute="centerY" secondItem="33G-yv-kET" secondAttribute="centerY" constant="0.5" id="jyP-JU-YF2"/>
+                            <constraint firstItem="33G-yv-kET" firstAttribute="top" secondItem="hDx-Di-c4N" secondAttribute="bottom" constant="8" id="kkI-gB-9zS"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="180"/>
+                    <connections>
+                        <outlet property="buttonView" destination="MZY-Dr-70j" id="KCK-Ex-5zO"/>
+                        <outlet property="cardLabel" destination="D9G-FJ-vJ3" id="lUM-wn-AcY"/>
+                        <outlet property="flipButton" destination="eIw-MK-E0K" id="cDc-aS-N4w"/>
+                        <outlet property="nextButton" destination="iDu-ta-hsl" id="2uT-rD-akH"/>
+                        <outlet property="openAppButton" destination="B4N-WW-MDs" id="jFr-hn-Z0T"/>
+                        <outlet property="prevButton" destination="Ecx-af-PqD" id="4RS-Ay-iAy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="516" y="284"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
