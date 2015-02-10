@@ -59,7 +59,8 @@ class WebPageViewController: UIViewController, UIWebViewDelegate{
 
         println("  ")
 
-        
+        println(url.description)
+
         if(navigationType.rawValue == 1){
         
         
@@ -71,7 +72,7 @@ class WebPageViewController: UIViewController, UIWebViewDelegate{
             
                 println("inside stuff")
             var dataDict = parseQueryString(url.description);
-            if url.description.rangeOfString("redirect") == nil && dataDict["state"]! == "QUIZLETCowboys" && dataDict["code"] != nil {
+            if dataDict["state"]! == "QUIZLETCowboys" && dataDict["code"] != nil {
                 userData.setObject(dataDict["code"]!, forKey: "tempCodeQuizlet");
                 userData.setValue(0, forKey: "currentCard");
                 
@@ -82,7 +83,7 @@ class WebPageViewController: UIViewController, UIWebViewDelegate{
 
                 
             }
-            else if url.description.rangeOfString("redirect") == nil && dataDict["state"]! == "CRAMCowboys" && dataDict["code"] != nil
+            else if  dataDict["state"]! == "CRAMCowboys" && dataDict["code"] != nil
             {
                 
                 userData.setObject(dataDict["code"]!, forKey: "tempCodeCram");
@@ -95,9 +96,8 @@ class WebPageViewController: UIViewController, UIWebViewDelegate{
                 
             }
 
-       
-        
-            else{
+         
+            else if dataDict["error"] != nil {
                 println("fuck tthis bitch")
                 self.logInDeclined = true
                 
@@ -105,16 +105,20 @@ class WebPageViewController: UIViewController, UIWebViewDelegate{
                 self.dismissViewControllerAnimated(true, completion: nil)
                 
             }
+        
+        
+        }
+        else if urlString.rangeOfString("quizleturl:///") != nil {
+            println("fuck tthis bitch")
+            self.logInDeclined = true
             
-            
+            userData.setObject(self.logInDeclined, forKey: "logInDeclined")
+            self.dismissViewControllerAnimated(true, completion: nil)
             
             }
-            
-            
       
             
         }
-        println(url.description)
 
         return true;
             
