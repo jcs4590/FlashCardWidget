@@ -40,6 +40,7 @@ class WebPageViewController: UIViewController, UIWebViewDelegate{
         
         }
       logInWebView.loadRequest(NSURLRequest(URL: NSURL(string:logInUrl)!))
+        logInWebView.sizeToFit();
        
         
         
@@ -72,7 +73,7 @@ class WebPageViewController: UIViewController, UIWebViewDelegate{
             
                 println("inside stuff")
             var dataDict = parseQueryString(url.description);
-            if dataDict["state"]! == "QUIZLETCowboys" && dataDict["code"] != nil {
+            if  dataDict["code"] != nil && dataDict["state"]! == "QUIZLETCowboys"  {
                 userData.setObject(dataDict["code"]!, forKey: "tempCodeQuizlet");
                 userData.setValue(0, forKey: "currentCard");
                 
@@ -83,7 +84,7 @@ class WebPageViewController: UIViewController, UIWebViewDelegate{
 
                 
             }
-            else if  dataDict["state"]! == "CRAMCowboys" && dataDict["code"] != nil
+            else if dataDict["code"] != nil && dataDict["state"]! == "CRAMCowboys" 
             {
                 
                 userData.setObject(dataDict["code"]!, forKey: "tempCodeCram");

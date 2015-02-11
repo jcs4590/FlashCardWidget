@@ -47,6 +47,9 @@ println("inside viewdidLoad")
 
 
   }
+    
+    
+    
     override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
@@ -93,7 +96,10 @@ println("inside viewdidLoad")
   
   
 
-  
+     override func prefersStatusBarHidden() -> Bool {
+        return true;
+    
+    }
     
   func skipLogin(){
     println("inside skip")
