@@ -42,13 +42,10 @@ class WebPageViewController: UIViewController, UIWebViewDelegate{
       logInWebView.loadRequest(NSURLRequest(URL: NSURL(string:logInUrl)!))
         logInWebView.sizeToFit();
        
-        
-        
 
     }
 
-  
-     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         let controller =   ViewController()
         var url = request.URL;
         let urlString: String = url.description;
@@ -148,7 +145,14 @@ class WebPageViewController: UIViewController, UIWebViewDelegate{
         return dict;
         
     }
-    
+    @IBAction func doneButtonAction(sender: AnyObject) {
+        
+         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    override func prefersStatusBarHidden() -> Bool {
+        
+        return true;
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

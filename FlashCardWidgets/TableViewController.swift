@@ -21,7 +21,6 @@ class TableViewController: UITableViewController {
   var quizletData : NSMutableArray = NSMutableArray();
   var cramData : NSMutableArray = NSMutableArray();
   var localData : NSMutableArray = NSMutableArray();
-  var localCardSet : NSMutableDictionary = NSMutableDictionary();
   var setTOEdit : NSMutableDictionary = NSMutableDictionary();
   var bothLoggedIn = false;
   var terms : NSMutableDictionary = NSMutableDictionary();
@@ -50,16 +49,10 @@ class TableViewController: UITableViewController {
         // Uncomment the following line to preserve selection between presentations
         self.clearsSelectionOnViewWillAppear = false
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-			terms.setValue("What is FlashCardsWidgets", forKey: "term")
-      terms.setValue("FlashCardWidgets is a Today Extension Widget that allows users to create there own card sets or log in with quizlet and cram so they can use current", forKey: "definition");
-
+ 
       
-      localCardSet.setValue(terms, forKey: "terms")
-      localCardSet.setValue("Sample Cards", forKey: "title")
-      localCardSet.setValue(localData.count+1, forKey: "term_count")
+  
 
-      localData.addObject(localCardSet);
       
       self.userData.setValue(localData, forKey: "localData")
     }
@@ -89,7 +82,7 @@ class TableViewController: UITableViewController {
         // Return the number of sections.
      
 
-      return 3;
+      return 2;
     }
 
   @IBAction func refreshData(sender: AnyObject) {
@@ -101,17 +94,13 @@ class TableViewController: UITableViewController {
         // Return the number of rows in the section.
     
       
-      if (section == 0){
-					updateDataSets()
-        return self.localData.count
-
-      }
-      else if section == 1{
+    
+      if section == 0{
 			updateDataSets()
       return self.cramData.count
 
       }
-      else if section ==  2{
+      else if section ==  1{
       
         return self.quizletData.count
       }
@@ -147,7 +136,7 @@ class TableViewController: UITableViewController {
       let cell = tableView.dequeueReusableCellWithIdentifier("quizletCell", forIndexPath: indexPath) as TableViewCell
       
       
-      if(indexPath.section == 2){
+      if(indexPath.section == 1){
        
       
 
@@ -160,7 +149,7 @@ class TableViewController: UITableViewController {
       }
         
         
-      else  if(indexPath.section == 1){
+      else  if(indexPath.section == 0){
         
         
 
@@ -171,53 +160,24 @@ class TableViewController: UITableViewController {
       }
 
       
-      else  if(indexPath.section == 0){
-        let holdRecongizer = UILongPressGestureRecognizer(target: self, action: "handleHold:");
-        holdRecongizer.minimumPressDuration = 1.5;
-        cell.addGestureRecognizer(holdRecongizer)
-        cell.termCountLabel.text = self.localData[indexPath.row].valueForKey("term_count")!.description;
-        cell.labelSetTitle.text = self.localData[indexPath.row].valueForKey("title") as? String;
-      
-      
-      }
-      
-      
+        
         return cell
     }
   
   
-  func handleHold(recognizer: UILongPressGestureRecognizer ){
-  
-    if recognizer.state == UIGestureRecognizerState.Ended{
-    let indexPath =  self.tableView.indexPathForRowAtPoint(recognizer.locationInView(self.view))
-
-    
-    
-    self.setTOEdit =  self.localData[indexPath!.row] as NSMutableDictionary;
-    println("so")
-    self.performSegueWithIdentifier("editSetSegue", sender: self);
-    
-    }
-  
-  }
    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
   
-    if(indexPath.section == 2){
+    if(indexPath.section == 1){
     self.userData.setValue(self.quizletData[indexPath.row].objectForKey("terms") , forKey: "arrayOfSelectedTerms") ;
     }
-    else if(indexPath.section == 1){
+    else if(indexPath.section == 0){
     
       self.userData.setValue(self.cramData[indexPath.row].objectForKey("terms") , forKey: "arrayOfSelectedTerms") ;
 
 
     
     }
-    else if (indexPath.section == 0){
-    
-    self.userData.setValue(self.localData[indexPath.row], forKey: "arrayOfSelectedTerms")
-    
-    }
-    self.userData.setValue(0, forKey:"currentCard");
+        self.userData.setValue(0, forKey:"currentCard");
 
   }
   
@@ -243,7 +203,7 @@ class TableViewController: UITableViewController {
     headerView.addSubview(headerTitle)
     button.setTitle("LogOut", forState: UIControlState.Normal)
     
-    if section == 2{
+    if section == 1{
       buttonAdd.hidden = true
       button.hidden = false
       
@@ -263,7 +223,7 @@ class TableViewController: UITableViewController {
     
     
     
-    if section == 1{
+    if section == 0{
       buttonAdd.hidden = true
       button.hidden = false
       
@@ -278,15 +238,7 @@ class TableViewController: UITableViewController {
     
     }
     
-    if section == 0{
-    
-      headerTitle.text = "My Local Sets"
-      button.hidden = true;
-      buttonAdd.hidden = false;
-    
-    
-    }
-    
+ 
     
     
     return headerView;
@@ -312,7 +264,7 @@ class TableViewController: UITableViewController {
     }
     else{
       self.userData.setObject("QUIZLET", forKey: "whichLogin")
-      UIApplication.sharedApplication().openURL(NSURL(string: urlTempAuth)!);
+        self.performSegueWithIdentifier("logInSegueTwo", sender: self)
       
       self.performSegueWithIdentifier("backtologin", sender: self)
       if(self.userData.objectForKey("QuizletData") != nil)
@@ -345,8 +297,8 @@ class TableViewController: UITableViewController {
     }
     else{
       self.userData.setObject("CRAM", forKey: "whichLogin")
+        self.performSegueWithIdentifier("logInSegueTwo", sender: self)
 
-      UIApplication.sharedApplication().openURL(NSURL(string: urlTempCramAuth)!);
 
       //self.performSegueWithIdentifier("backtologin", sender: self)
       if(self.userData.objectForKey("CramData") != nil)

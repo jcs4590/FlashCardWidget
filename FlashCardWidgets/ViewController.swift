@@ -60,8 +60,12 @@ println("inside viewdidLoad")
     
     println("hello viewDidAppear")
     self.logInDeclined = self.methods.userData.objectForKey("logInDeclined") as Bool;
-    if(self.logInDeclined){
-    if((self.methods.userData.objectForKey("QuizletToken") != nil && self.methods.userData.objectForKey("CramToken") == nil) ||
+    
+    
+
+   
+        
+        if((self.methods.userData.objectForKey("QuizletToken") != nil && self.methods.userData.objectForKey("CramToken") == nil) ||
     (self.methods.userData.objectForKey("QuizletToken") == nil && self.methods.userData.objectForKey("CramToken") != nil )){
     
     self.otherLogIn()
@@ -74,13 +78,14 @@ println("inside viewdidLoad")
       
       
     }
+    
     super.viewDidAppear(animated)
   
 
  
 
 
-    }
+    
 
     
 

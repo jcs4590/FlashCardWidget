@@ -70,7 +70,7 @@
                     </view>
                     <connections>
                         <segue destination="NPx-co-az8" kind="presentation" identifier="MainCardSetsTableView" id="SZ0-7n-flE"/>
-                        <segue destination="6Wh-ZZ-7vD" kind="popoverPresentation" identifier="logInSegue" popoverAnchorView="8bC-Xf-vdC" id="0We-LL-r77">
+                        <segue destination="rdR-Pp-MKt" kind="popoverPresentation" identifier="logInSegue" popoverAnchorView="8bC-Xf-vdC" id="0We-LL-r77">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                         </segue>
                     </connections>
@@ -83,19 +83,27 @@
         <scene sceneID="lcN-VA-AIS">
             <objects>
                 <viewController id="6Wh-ZZ-7vD" customClass="WebPageViewController" customModule="FlashCardWidgets" customModuleProvider="target" sceneMemberID="viewController">
-                    <webView key="view" contentMode="scaleToFill" id="Sy2-Eq-6qo">
+                    <webView key="view" contentMode="scaleToFill" id="y1B-tE-S6U">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </webView>
+                    <navigationItem key="navigationItem" id="LIr-fe-cJ0">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="p6N-a9-R8K">
+                            <connections>
+                                <action selector="doneButtonAction:" destination="6Wh-ZZ-7vD" id="Mqd-R6-roV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="logInWebView" destination="Sy2-Eq-6qo" id="ArS-Iy-kho"/>
+                        <outlet property="logInWebView" destination="y1B-tE-S6U" id="1xO-ke-TBu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="luZ-cH-6J3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="472" y="1076"/>
+            <point key="canvasLocation" x="1293" y="1061"/>
         </scene>
         <!--Flash Card Widgets-->
         <scene sceneID="Uac-jn-Hn3">
@@ -200,11 +208,14 @@
                         <outlet property="tableViewSets" destination="SJ1-OR-FMq" id="yb1-SK-bN7"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="backtologin" id="XjN-I1-1bY"/>
                         <segue destination="NPx-co-az8" kind="show" identifier="backtologin" id="Niq-fh-aXa"/>
+                        <segue destination="rdR-Pp-MKt" kind="popoverPresentation" identifier="logInSegueTwo" popoverAnchorView="SJ1-OR-FMq" id="Q81-GQ-V8f">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="axo-L4-Is5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1350" y="1240"/>
+            <point key="canvasLocation" x="2176" y="1456"/>
         </scene>
         <!--Help View Controller-->
         <scene sceneID="fLO-HO-h5Y">
@@ -245,7 +256,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="grq-58-95n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2176" y="1229"/>
+            <point key="canvasLocation" x="2988" y="1229"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8zq-TO-plw">
@@ -285,14 +296,34 @@
             </objects>
             <point key="canvasLocation" x="2094" y="160"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kTW-P2-gip">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rdR-Pp-MKt" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PRE-k6-VMy">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="6Wh-ZZ-7vD" kind="relationship" relationship="rootViewController" id="ha0-kj-bE9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="93I-CT-sTI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="481" y="1061"/>
+        </scene>
     </scenes>
     <resources>
         <image name="CramButton.png" width="600" height="160"/>
         <image name="QuizletsButton.png" width="600" height="160"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Q81-GQ-V8f"/>
         <segue reference="mTu-7Z-bw7"/>
-        <segue reference="SZ0-7n-flE"/>
-        <segue reference="UKf-vM-mhU"/>
+        <segue reference="XjN-I1-1bY"/>
+        <segue reference="Niq-fh-aXa"/>
     </inferredMetricsTieBreakers>
 </document>
